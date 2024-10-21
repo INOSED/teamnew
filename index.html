@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Booking</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Event Booking Portal</h1>
+    <p>Book your spot at the most exciting events in the city!</p>
+  </header>
+
+  <main>
+    <section id="events">
+      <h2>Upcoming Events</h2>
+
+      <!-- Music Concert -->
+      <div class="event animated-event">
+        <h3>Music Concert</h3>
+        <p>Date: 25th October 2024</p>
+        <p>Location: City Hall</p>
+        <p>Seats Available: <span class="seats" id="seats-concert">50</span></p>
+        <button class="book-btn animated-button" onclick="openBookingForm('Music Concert')">Book Now</button>
+      </div>
+
+      <!-- Art Exhibition -->
+      <div class="event animated-event">
+        <h3>Art Exhibition</h3>
+        <p>Date: 30th October 2024</p>
+        <p>Location: Art Gallery</p>
+        <p>Seats Available: <span class="seats" id="seats-art">30</span></p>
+        <button class="book-btn animated-button" onclick="openBookingForm('Art Exhibition')">Book Now</button>
+      </div>
+
+      <!-- Food Festival -->
+      <div class="event animated-event">
+        <h3>Food Festival</h3>
+        <p>Date: 1st November 2024</p>
+        <p>Location: Riverside Park</p>
+        <p>Seats Available: <span class="seats" id="seats-food">100</span></p>
+        <button class="book-btn animated-button" onclick="openBookingForm('Food Festival')">Book Now</button>
+      </div>
+    </section>
+
+    <!-- Booking Form Modal -->
+    <div id="booking-form-container" class="modal hidden">
+      <div class="modal-content slide-in">
+        <span class="close" onclick="closeBookingForm()">&times;</span>
+        <h2>Book your spot for <span id="event-name"></span></h2>
+        <form id="booking-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" required>
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" required>
+
+          <label for="quantity">Number of Tickets:</label>
+          <input type="number" id="quantity" min="1" max="5" value="1" required>
+
+          <button type="submit" class="confirm-btn animated-button">Confirm Booking</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Booking Confirmation Modal -->
+    <div id="confirmation" class="modal hidden">
+      <div class="modal-content slide-in">
+        <span class="close" onclick="closeConfirmation()">&times;</span>
+        <h2>Thank you for booking!</h2>
+        <p>Your spot has been reserved for <span id="confirmed-event"></span>.</p>
+        <p>We’ve sent a confirmation email to <span id="confirmed-email"></span>.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Event Booking. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
